@@ -14,14 +14,15 @@ from sklearn.compose import ColumnTransformer
 from sklearn.metrics import confusion_matrix
 from dotenv import load_dotenv
 import argparse
+from functions import split_column
 
 # ENVIRONMENT CONFIGURATION
-parser = argparse.ArgumentParser(description="?")
+parser = argparse.ArgumentParser(description="Entraînement modèle Titanic")
 parser.add_argument(
-    "--N_TREES", type=str, default=20, help="Nombre de trees pour la RF"
+    "--n_trees", type=int, default=20, help="Nombre d'arbres pour la RF"
 )
-args = parser.parse_args()
-print(args.N_TREES)
+args = parser.parse_args() # transforme arguments de la ligne de commande en objet python
+print(args.n_trees)
 
 load_dotenv()
 
@@ -34,7 +35,7 @@ else:
 
 
 # Définition des variables globales
-N_TREES = 20
+N_TREES = args.n_trees
 MAX_DEPTH = None
 MAX_FEATURES = "sqrt"
 
@@ -43,8 +44,8 @@ MAX_FEATURES = "sqrt"
 TrainingData = pd.read_csv("./data.csv")
 
 TrainingData.head()
-TrainingData["Ticket"].str.split("/").str.len()
-TrainingData["Name"].str.split(",").str.len()
+TrainingData["Ticket"] = split_column(TrainingData, "Ticket", "/")
+TrainingData["Name"] = split_column(TrainingData, "Name", ",")
 TrainingData.isnull().sum()
 
 ### Statut socioéconomique
