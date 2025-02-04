@@ -1,0 +1,1 @@
+Pour utiliser l'API, il faut un fichier .env contenant le jeton API.
