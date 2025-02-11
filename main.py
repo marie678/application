@@ -31,9 +31,9 @@ MAX_DEPTH = None
 MAX_FEATURES = "sqrt"
 
 if jeton_api.startswith("$"):
-    print("API token has been configured properly")
+    logger.succes("API token has been configured properly")
 else:
-    print("API token has not been configured")
+    logger.info("API token has not been configured")
 
 # IMPORT ET EXPLORATION DONNEES --------------------------------
 
@@ -62,7 +62,7 @@ pipe.fit(X_train, y_train)
 
 # Evaluate the model
 score, matrix = evaluate_model(pipe, X_test, y_test)
-print(f"{score:.1%} de bonnes réponses sur les données de test pour validation")
-print(20 * "-")
-print("matrice de confusion")
-print(matrix)
+logger.info(f"{score:.1%} de bonnes réponses sur les données de test pour validation")
+logger.info(20 * "-")
+logger.info("matrice de confusion")
+logger.info(matrix)
