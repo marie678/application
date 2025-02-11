@@ -15,6 +15,7 @@ from sklearn.metrics import confusion_matrix
 from dotenv import load_dotenv
 import argparse
 from functions import split_column
+from dotenv import load_dotenv
 
 # ENVIRONMENT CONFIGURATION
 parser = argparse.ArgumentParser(description="Entraînement modèle Titanic")
