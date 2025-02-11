@@ -6,9 +6,13 @@ import os
 from dotenv import load_dotenv
 import argparse
 import pandas as pd
-from import_data import split_and_count, split_train_test
-from build_features import create_pipeline
-from train_evaluate import evaluate_model
+from src.data.import_data import split_and_count, split_train_test
+from src.pipeline.build_features import create_pipeline
+from src.models.train_evaluate import evaluate_model
+from loguru import logger
+
+logger.debug("That's it, beautiful and simple logging!")
+logger.add("file_{time}.log")
 
 # ENVIRONMENT CONFIGURATION ---------------------------
 
@@ -33,8 +37,7 @@ else:
 
 # IMPORT ET EXPLORATION DONNEES --------------------------------
 
-TrainingData = pd.read_csv("data.csv")
-
+TrainingData = pd.read_csv("./data/raw/data.csv")
 
 # Usage example:
 ticket_count = split_and_count(TrainingData, "Ticket", "/")
@@ -48,17 +51,14 @@ X_train, X_test, y_train, y_test = split_train_test(TrainingData, test_size=0.1)
 
 # PIPELINE ----------------------------
 
-
 # Create the pipeline
 pipe = create_pipeline(
     n_trees, max_depth=MAX_DEPTH, max_features=MAX_FEATURES
 )
 
-
 # ESTIMATION ET EVALUATION ----------------------
 
 pipe.fit(X_train, y_train)
-
 
 # Evaluate the model
 score, matrix = evaluate_model(pipe, X_test, y_test)
