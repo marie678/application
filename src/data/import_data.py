@@ -19,7 +19,7 @@ def split_and_count(df, column, separator):
     return df[column].str.split(separator).str.len()
 
 
-def split_train_test(data, test_size, train_path="../../data/derived/train.csv", test_path="../../data/derived/test.csv"):
+def split_train_test(data, test_size, train_path="./../../data/derived/train.csv", test_path="./../../data/derived/test.csv"):
     """
     Split the data into training and testing sets based on the specified test size.
     Optionally, save the split datasets to CSV files.
