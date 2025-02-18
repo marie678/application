@@ -26,7 +26,9 @@ args = parser.parse_args()
 
 n_trees = args.n_trees
 jeton_api = os.environ.get("JETON_API", "")
-data_path = os.environ.get("DATA_PATH", "data.csv")
+data_path = os.environ.get("URL_RAW", "")
+data_train_path = os.environ.get("train_path", "data/derived/train.parquet")
+data_test_path = os.environ.get("test_path", "data/derived/test.parquet")
 MAX_DEPTH = None
 MAX_FEATURES = "sqrt"
 
@@ -37,7 +39,7 @@ else:
 
 # IMPORT ET EXPLORATION DONNEES --------------------------------
 
-TrainingData = pd.read_csv("./data/raw/data.csv")
+TrainingData = pd.read_csv(data_train_path)
 
 # Usage example:
 ticket_count = split_and_count(TrainingData, "Ticket", "/")
