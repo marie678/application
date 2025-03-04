@@ -57,12 +57,10 @@ X_train, X_test, y_train, y_test = split_train_test(
 
 # PIPELINE ----------------------------
 
-
 # Create the pipeline
 pipe = create_pipeline(
     n_trees, max_depth=MAX_DEPTH, max_features=MAX_FEATURES
 )
-
 
 # ESTIMATION ET EVALUATION ----------------------
 
