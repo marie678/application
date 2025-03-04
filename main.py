@@ -48,36 +48,27 @@ p = pathlib.Path("data/derived/")
 p.mkdir(parents=True, exist_ok=True)
 
 TrainingData = pd.read_csv(data_path)
+# TrainingData = pd.read_parquet(data_path)
 
-y = TrainingData["Survived"]
-X = TrainingData.drop("Survived", axis="columns")
+# SPLIT TRAIN/TEST --------------------------------
 
-X_train, X_test, y_train, y_test = train_test_split(
-    X, y, test_size=0.1
-)
-pd.concat([X_train, y_train], axis = 1).to_parquet(data_train_path)
-pd.concat([X_test, y_test], axis = 1).to_parquet(data_test_path)
-
+X_train, X_test, y_train, y_test = split_train_test(TrainingData, train_path=data_train_path, test_path=data_test_path, test_size=0.1)
 
 
 # PIPELINE ----------------------------
-
 
 # Create the pipeline
 pipe = create_pipeline(
     n_trees, max_depth=MAX_DEPTH, max_features=MAX_FEATURES
 )
 
-
 # ESTIMATION ET EVALUATION ----------------------
 
 pipe.fit(X_train, y_train)
 
-
 # Evaluate the model
 score, matrix = evaluate_model(pipe, X_test, y_test)
-
-logger.success(f"{score:.1%} de bonnes réponses sur les données de test pour validation")
-logger.debug(20 * "-")
-logger.info("Matrice de confusion")
-logger.debug(matrix)
+logger.info(f"{score:.1%} de bonnes réponses sur les données de test pour validation")
+logger.info(20 * "-")
+logger.info("matrice de confusion")
+logger.info(matrix)
