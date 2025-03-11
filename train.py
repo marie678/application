@@ -68,7 +68,6 @@ pipe = create_pipeline(
     n_trees, max_depth=MAX_DEPTH, max_features=MAX_FEATURES
 )
 
-
 # ESTIMATION ET EVALUATION ----------------------
 
 pipe.fit(X_train, y_train)

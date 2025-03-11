@@ -1,0 +1,13 @@
+2025-03-04 09:02:37.575 | WARNING  | __main__:<module>:42 - API token has not been configured
+2025-03-04 09:03:15.635 | WARNING  | __main__:<module>:42 - API token has not been configured
+2025-03-04 09:03:15.812 | SUCCESS  | __main__:<module>:80 - 78.9% de bonnes réponses sur les données de test pour validation
+2025-03-04 09:03:15.812 | DEBUG    | __main__:<module>:81 - --------------------
+2025-03-04 09:03:15.812 | INFO     | __main__:<module>:82 - Matrice de confusion
+2025-03-04 09:03:15.812 | DEBUG    | __main__:<module>:83 - [[46 12]
+ [ 7 25]]
+2025-03-11 10:56:36.741 | WARNING  | __main__:<module>:42 - API token has not been configured
+2025-03-11 10:56:36.908 | SUCCESS  | __main__:<module>:78 - 76.7% de bonnes réponses sur les données de test pour validation
+2025-03-11 10:56:36.915 | DEBUG    | __main__:<module>:79 - --------------------
+2025-03-11 10:56:36.915 | INFO     | __main__:<module>:80 - Matrice de confusion
+2025-03-11 10:56:36.915 | DEBUG    | __main__:<module>:81 - [[40 13]
+ [ 8 29]]

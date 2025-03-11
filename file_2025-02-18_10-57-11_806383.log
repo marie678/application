@@ -1,0 +1,7 @@
+2025-02-18 10:57:11.811 | INFO     | __main__:<module>:32 - https://minio.lab.sspcloud.fr/mmeyer/ensae-reproductibilite/data/raw/data.csv
+2025-02-18 10:57:11.811 | SUCCESS  | __main__:<module>:39 - API token has been configured properly
+2025-02-18 10:57:11.947 | INFO     | __main__:<module>:69 - 78.9% de bonnes réponses sur les données de test pour validation
+2025-02-18 10:57:11.947 | INFO     | __main__:<module>:70 - --------------------
+2025-02-18 10:57:11.947 | INFO     | __main__:<module>:71 - matrice de confusion
+2025-02-18 10:57:11.947 | INFO     | __main__:<module>:72 - [[46  6]
+ [13 25]]
