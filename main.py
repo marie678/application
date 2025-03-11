@@ -62,12 +62,10 @@ pd.concat([X_test, y_test], axis = 1).to_parquet(data_test_path)
 
 # PIPELINE ----------------------------
 
-
 # Create the pipeline
 pipe = create_pipeline(
     n_trees, max_depth=MAX_DEPTH, max_features=MAX_FEATURES
 )
-
 
 # ESTIMATION ET EVALUATION ----------------------
 
