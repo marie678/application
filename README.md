@@ -1,3 +1,4 @@
+[![Python package](https://github.com/marie678/application/actions/workflows/test.yaml/badge.svg)](https://github.com/marie678/application/actions/workflows/test.yaml)
 # Probabilité de survie sur le Titanic
 
 Pour pouvoir utiliser ce projet, il
